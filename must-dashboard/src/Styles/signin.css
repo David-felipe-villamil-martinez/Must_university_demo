@@ -1,0 +1,105 @@
+/* ===== Fondo tipo Gratafy, pero pensado para DESKTOP ===== */
+.signin-bg.desktop {
+  min-height: 100vh;
+  background: radial-gradient(1200px 600px at 20% 15%, #1a2033 0%, #0f1323 60%, #0b0f1c 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* shapes diagonales grandes, suaves */
+.signin-bg.desktop::before,
+.signin-bg.desktop::after {
+  content: "";
+  position: absolute;
+  width: 980px;
+  height: 980px;
+  border-radius: 48px;
+  background: #141a2b;
+  opacity: 0.30;
+  filter: blur(2px);
+}
+.signin-bg.desktop::before { right: -220px; top: 10%; transform: rotate(28deg); }
+.signin-bg.desktop::after  { left: -260px; bottom: -200px; transform: rotate(12deg); }
+
+/* topbar mínima con marca */
+.signin-topbar {
+  display: flex;
+  justify-content: center;
+  padding: 28px 0 8px;
+}
+.brand {
+  font: 800 34px/1 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+.brand span { font-weight: 500; color: #9aa6d1; }
+
+/* centra el card en viewport desktop */
+.signin-center {
+  display: grid;
+  place-items: start center;
+  padding-top: 24px;
+  padding-bottom: 80px;
+}
+
+/* ===== Card Clerk – Desktop ===== */
+.ck-card-desktop {
+  background: rgba(16, 22, 38, 0.95);
+  box-shadow:
+    0 40px 90px rgba(0,0,0,0.55),
+    0 12px 30px rgba(0,0,0,0.35);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 36px !important;
+  border-radius: 20px !important;
+  /* ancho definido por appearance.layout.width */
+}
+
+/* tipografías del card */
+.ck-title-desktop { color: #ffffff; font-weight: 800; font-size: 22px; }
+.ck-subtitle-desktop { color: #a8b2d6; }
+
+/* Inputs grandes y limpios */
+.ck-input-desktop {
+  background: #1b2132 !important;
+  color: #ffffff !important;
+  height: 48px !important;
+  border: 1px solid transparent !important;
+  border-radius: 12px !important;
+  outline: none;
+}
+.ck-input-desktop::placeholder { color: #9aa6d1 !important; }
+.ck-input-desktop:focus {
+  border-color: #4CE0D2 !important;
+  box-shadow: 0 0 0 3px rgba(76, 224, 210, 0.25) !important;
+}
+
+.ck-label-desktop { color: #c5ccee !important; }
+
+/* Botón primario ancho completo, bien desktop */
+.ck-btn-desktop {
+  height: 48px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.2px;
+  background: #4CE0D2 !important;
+  color: #0b0f1c !important;
+  border: none !important;
+  border-radius: 12px !important;
+  transition: transform 120ms ease, filter 120ms ease;
+}
+.ck-btn-desktop:hover { filter: brightness(0.96); transform: translateY(-1px); }
+.ck-btn-desktop:active { transform: translateY(0); }
+
+.ck-footer-desktop { color: #9aa6d1 !important; }
+.ck-link-desktop { color: #4CE0D2 !important; text-decoration: none !important; }
+.ck-link-desktop:hover { text-decoration: underline !important; }
+
+/* Opcional: si molesta el “Development mode” de Clerk mientras pruebas:
+   (No se recomienda para producción; es solo para tu entorno local) */
+[data-localization-key="badge__development_mode"],
+.cl-badge { display: none !important; }
+
+/* Responsivo por si achicas ventana */
+@media (max-width: 800px) {
+  .brand { font-size: 28px; }
+}
